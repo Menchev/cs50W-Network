@@ -14,11 +14,11 @@ Social Network
 - Edit user post
 
 ### How to run this application:
-- clone repository 
+- clone repository: 
 git clone https://github.com/Menchev/cs50W-Network.git
-- Install all dependencies
+- Install all dependencies:
 pip install -r requirements.txt
-- Run application
+- Run application:
 python manage.py runserver
 
 # Author: Mencho
