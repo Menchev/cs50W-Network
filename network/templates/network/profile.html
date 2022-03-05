@@ -1,0 +1,35 @@
+{% extends 'network/layout.html' %}
+{% load static %}
+
+{% block title %}
+    {{ user.username }}
+{% endblock %}
+
+{% block body %}
+    <input id="userID" value="{{ user.id }}" type="hidden">
+    <h4 class="ps-3 pt-3">{{ user.username }}'s profile:</h4>
+
+    <div id="followInfo">
+    </div>
+
+    <h4 class="ps-3 pt-3">Posts:</h4>
+    {% for post in posts %}
+    <div class="container border mb-4 mt-4 p-4 rounded">
+        <div>
+            {{ post.content }}
+        </div>
+        <div class="text-black-50">
+            {{ post.timestamp }}
+        </div>
+    </div>
+    {% empty %}
+        No posts to show!
+    {% endfor %}
+
+{% block script %}
+    <script src="{% static 'network/profile.js' %}"></script>
+{% endblock %}
+
+{% endblock %}
+
+

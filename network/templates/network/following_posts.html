@@ -1,0 +1,26 @@
+{% extends 'network/layout.html' %}
+{% load static %}
+
+{% block title %}
+    All posts
+{% endblock %}
+
+{% block body %}
+    {% for post in posts %}
+    <div class="container border mb-4 mt-4 p-4 rounded">
+        <div>
+            <a href="{% url 'profile' user_id=post.user.id %}">
+                <b>{{ post.user.username }}</b>
+            </a>
+        </div>
+        <div>
+            {{ post.content }}
+        </div>
+        <div class="text-black-50">
+            {{ post.timestamp }}
+        </div>
+    </div>
+    {% empty %}
+    No posts to show!
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends "network/layout.html" %}
+{% load static %}
+
+{% block body %}
+
+    <h3 class="pt-3 ps-3">All Posts:</h3>
+
+    {% if user.is_authenticated %}
+        <div class="container border mb-4 mt-4 p-4 rounded">
+            <form action="{% url 'index' %}" method="post">
+                {% csrf_token %}
+                {{ NewPostForm }}
+                <input type="submit" value="Post" class="btn btn-primary mt-1">
+            </form>
+        </div>
+    {% endif %}
+
+    {% for post in page_obj %}
+        <div id="post" class="container border mb-4 mt-4 p-4 rounded" data-post_id="{{ post.id }}">
+            <div>
+                <a href="{% url 'profile' user_id=post.user.id %}">
+                    <b>{{ post.user.username }}</b>
+                </a>
+            </div>
+            <div id="post-content">
+                {{ post.content }}
+            </div>
+            {% if request.user == post.user %}
+                <button class="btn btn-light" id="editBtn">Edit</button>
+            {% endif %}
+            <div class="text-black-50">
+                {{ post.timestamp }}
+            </div>
+        </div>
+        <div id="editPost">
+        </div>
+    {% empty %}
+        No posts to show!
+    {% endfor %}
+
+    <div class="pagination justify-content-center pb-4">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?page=1">&laquo; first</a>
+                <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+            {% endif %}
+    
+            <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            </span>
+    
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">next</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+
+{% block script %}
+    <script src="{% static 'network/index.js' %}"></script>
+{% endblock %}
+
+{% endblock %}
+
