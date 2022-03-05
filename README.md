@@ -15,7 +15,7 @@ Social Network
 
 ### How to run this application:
 - clone repository: 
-git clone https://github.com/Menchev/cs50W-Network.git
+    git clone https://github.com/Menchev/cs50W-Network.git
 - Install all dependencies:
 pip install -r requirements.txt
 - Run application:
