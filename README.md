@@ -1,5 +1,4 @@
 # cs50W-Network
-Social Network
 
 # CS50 Web Programming with Python and JavaScript
 
