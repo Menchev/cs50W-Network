@@ -3,7 +3,7 @@ Social Network
 
 # CS50 Web Programming with Python and JavaScript
 
-## Project: Social Network
+## Project: Social Network - a Twitter-like social network website for making posts and following users.
 
 ### Features:
 - Create new Post
