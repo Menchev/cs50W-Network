@@ -1,5 +1,3 @@
-# cs50W-Network
-
 # CS50 Web Programming with Python and JavaScript
 
 ## Project: Social Network - a Twitter-like social network website for making posts and following users.
